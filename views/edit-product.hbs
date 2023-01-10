@@ -1,0 +1,77 @@
+<div class="col-sm-12 col-md-8 mx-auto text-center formDiv">
+	<p class="fs-1 text-light">Edit Product</p>
+	{{#if productUpError}}
+		<div
+			class="alert alert-danger alert-dismissible fade show d-flex align-items-center"
+			role="alert"
+		>
+			<svg
+				xmlns="http://www.w3.org/2000/svg"
+				width="30"
+				height="30"
+				fill="currentColor"
+				class="bi bi-exclamation-circle-fill me-3"
+				viewBox="0 0 16 16"
+			>
+				<path
+					d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8 4a.905.905 0 0 0-.9.995l.35 3.507a.552.552 0 0 0 1.1 0l.35-3.507A.905.905 0 0 0 8 4zm.002 6a1 1 0 1 0 0 2 1 1 0 0 0 0-2z"
+				></path>
+			</svg>
+			<strong class="me-2">Error!!! </strong>
+			{{productUpError}}
+			<button
+				type="button"
+				class="btn-close"
+				data-bs-dismiss="alert"
+				aria-label="Close"
+			></button>
+		</div>
+	{{/if}}
+	<form action="/edit-product" method="POST">
+		<div class="form-floating mb-3">
+			<input
+				type="text"
+				class="form-control"
+				id="floatingInput"
+				placeholder="tosh@mat.com"
+				name="title"
+				value="{{product.title}}"
+			/>
+			<label class="text-dark">Title</label>
+		</div>
+		<div class="form-floating mb-3">
+			<textarea
+				class="form-control"
+				placeholder="Description here..."
+				id="floatingTextarea2"
+				style="height: 200px"
+				name="description"
+			>{{product.description}}</textarea>
+			<label for="floatingTextarea2">Description</label>
+		</div>
+		<div class="form-floating mb-3">
+			<input
+				type="text"
+				class="form-control"
+				id="floatingInput"
+				placeholder="Image"
+				name="image"
+				value="{{product.image}}"
+			/>
+			<label class="text-dark">Image</label>
+		</div>
+		<div class="input-group mb-3">
+			<span class="input-group-text">$</span>
+			<input
+				type="number"
+				class="form-control"
+				aria-label="Amount (to the nearest dollar)"
+				name="price"
+				value="{{product.price}}"
+			/>
+			<span class="input-group-text">.00</span>
+			<input type="hidden" name="id" value="{{product._id}}" />
+		</div>
+		<button type="submit" class="formBtn mt-3">UPDATE</button>
+	</form>
+</div>

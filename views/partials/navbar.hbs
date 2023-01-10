@@ -1,0 +1,60 @@
+<div class="container py-3">
+	<header>
+		<div
+			class="user-select-none d-flex flex-column flex-md-row align-items-center pb-3 mb-4 border-info border-bottom"
+		>
+			<nav
+				class="navbar navbar-dark w-100  rounded-4 border border-info"
+			>
+				<a
+					href="/"
+					class="d-flex align-items-center text-info text-decoration-none"
+				>
+					<img src="/ico.png" alt="icon" width="50" class="ms-3">
+					<span class="fs-4 ms-2">UY</span>
+				</a>
+				<a class="navBtn me-3 p-2 rounded text-info text-decoration-none {{#if isHome}}bg-info text-dark{{/if}}" href="/">
+					BOSH SAHIFA</a>
+				<a
+					class="navBtn me-3 p-2 rounded text-info text-decoration-none {{#if isProducts}}bg-info text-dark{{/if}}"
+					href="/products"
+				>UYLAR</a>
+				<a
+					class="navBtn me-3 p-2 rounded text-info text-decoration-none {{#if isAbout}}bg-info text-dark{{/if}}"
+					href="/about"
+				>BIZ HAQIMIZDA</a>
+				<a
+					class="navBtn me-3 p-2 rounded text-info text-decoration-none {{#if isContact}}bg-info text-dark{{/if}}"
+					href="/contact"
+				>BOG'LANISH</a>
+				<div class="btns">
+				{{#if token}}
+					<a href="/add"><button class="btn btn-outline-info me-4">
+					<i class="fa fa-plus"></i>
+					ADD UY</button></a>
+					<div class="btn-group">
+						<a class="btn dropdown-toggle me-3 userDrop" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+							<img src="{{@root.userImage}}" alt="userImage">
+						</a>
+						<ul class="dropdown-menu bg-dark">
+							{{#isAdmin userRole}}
+								<li><a class="dropdown-item text-info" href="/admin">Admin Panel</a></li>
+							{{/isAdmin}}
+							<li><a class="dropdown-item text-light" href="/settings">Profile Settings</a></li>
+							<li><a class="dropdown-item text-light" href="/my-products">My Products</a></li>
+							<li><a class="dropdown-item text-danger" href="/logout">Logout</a></li>
+						</ul>
+					</div>
+				{{else}}
+					<a class="me-3 py-2 text-info text-decoration-none" href="/login">
+						<button type="button" class="btn btn-outline-primary {{#if isLogin}}border-1 border-light{{/if}}">LOGIN</button>
+					</a>
+					<a class="me-3 py-2 text-info text-decoration-none" href="/register">
+						<button type="button" class="btn btn-outline-success {{#if isRegister}}border-1 border-light{{/if}}">REGISTER</button>
+					</a>
+				{{/if}}
+				</div>
+			</nav>
+		</div>
+	</header>
+</div>

@@ -1,0 +1,26 @@
+.formDiv {
+  padding: 20px;
+  border-radius: 5px 50px 5px 50px;
+  border-top: 4px solid rgb(0, 255, 0);
+  border-bottom: 4px solid rgb(255, 0, 0);
+  border-left: 4px solid rgb(68, 0, 255);
+  border-right: 4px solid rgb(229, 255, 0);
+  background: linear-gradient(68.6deg, rgb(252, 165, 241) 1.8%, rgb(181, 255, 255) 100.5%);
+  background: rgba(0, 0, 0, 0.7);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(3.3px);
+  -webkit-backdrop-filter: blur(3.3px);
+}
+
+.formBtn {
+  width: 50%;
+  height: 45px;
+  border-radius: 5px 25px 5px 25px;
+  background: rgb(238, 255, 0);
+  border-top: 4px solid rgb(0, 255, 0);
+  border-bottom: 4px solid rgb(255, 0, 0);
+  border-left: 4px solid rgb(68, 0, 255);
+  border-right: 4px solid rgb(229, 255, 0);
+  background: rgba(0, 255, 247, 0.5);
+  color: #fff;
+}

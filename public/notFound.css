@@ -1,0 +1,16 @@
+.page_404 {
+  position: absolute;
+  background-image: url(https://freefrontend.com/assets/img/html-funny-404-pages/HTML-404-Error-Page.gif);
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+.notFoundBtn {
+  margin-top: 80vh;
+}

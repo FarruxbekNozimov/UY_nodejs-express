@@ -1,0 +1,100 @@
+<div class="container-fluid position-relative d-flex p-0">
+
+	<!-- Sidebar Start -->
+	{{> adminSidebar}}
+	<!-- Sidebar End -->
+
+	<!-- Content Start -->
+	<div class="content">
+		<!-- Navbar Start -->
+		{{> adminNavbar}}
+		<!-- Navbar End -->
+
+		<div class="container-fluid pt-4 px-4">
+      <div class="col-sm-12 col-xl-12">
+        <div class="bg-secondary rounded h-100 p-4">
+          <h5 class="mb-4">Users' Products </h5>
+          <div class="d-flex align-items-start">
+            <div
+              class="nav flex-column nav-pills me-3 rounded gap-2"
+              id="v-pills-tab"
+              role="tablist"
+              aria-orientation="vertical"
+            >
+            {{#allUsers}}
+              <button
+                class="nav-link text-info avatar text-center"
+                id="v-{{_id}}-tab"
+                data-bs-toggle="pill"
+                data-bs-target="#v-{{_id}}"
+                type="button"
+                role="tab"
+                aria-controls="v-{{_id}}"
+                aria-selected="true"
+                style="background-image: url({{image}}) !important;"
+              >{{avatarTxt firstName lastName}}</button>
+            {{/allUsers}}
+            </div>
+            <div class="tab-content" id="v-pills-tabContent">
+            <h5
+                class="tab-pane text-muted fade active show"
+                id="v-{{_id}}"
+                role="tabpanel"
+                aria-labelledby="v-{{_id}}-tab"
+              >
+              There are all products of Users
+            </h5>
+            {{#allUsers}}
+              <div
+                class="tab-pane fade show"
+                id="v-{{_id}}"
+                role="tabpanel"
+                aria-labelledby="v-{{_id}}-tab"
+              >
+              {{#checkOwner role @root.admin.role}}
+                {{#if products.length}}
+                  <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+                    {{#products}}
+                      <div class="col">
+                        <div class="card bg-dark">
+                          <img src="{{image}}" class="card-img-top" alt="productImage" height="200px">
+                          <div class="card-body">
+                            <h5 class="card-title text-white text-center">{{title}}</h5>
+                            <p class="card-text bg-secondary p-2 rounded" style="height:150px;overflow: scroll;">{{description}}</p>
+                            <div class="end d-flex justify-content-between">
+                              <p class="card-text m-0 p-0">{{price}}.00 $ <br>{{formatDate createdAt 1}} ago</p>
+                              <div class="productBtns">
+                              <form action="/admin/products/delete/{{_id}}" method="POST">
+                                <button class="btn btn-primary mt-2"><i class="fa fa-trash"></i></button>
+                              </form>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    {{/products}}
+                  </div>
+                {{else}}
+                  <h5 class="text-muted m-auto">This user has not added any products yet ... 🔆</h5>
+                {{/if}}
+              {{else}}
+                <h1 class="lockOwner"><i class="fa fa-lock"></i></h1>
+              {{/checkOwner}}
+              </div>
+            {{/allUsers}}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+		<!-- Footer Start -->
+		{{> adminFoot}}
+		<!-- Footer End -->
+	</div>
+	<!-- Content End -->
+
+	<!-- Back to Top -->
+	<a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i
+			class="bi bi-arrow-up"
+		></i></a>
+</div>

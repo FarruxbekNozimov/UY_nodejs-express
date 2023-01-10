@@ -1,0 +1,128 @@
+<div class="container-fluid position-relative d-flex p-0">
+	
+	<!-- Sidebar Start -->
+	{{> adminSidebar}}
+	<!-- Sidebar End -->
+	
+
+	<!-- Content Start -->
+	<div class="content">
+		<!-- Navbar Start -->
+		{{> adminNavbar}}
+		<!-- Navbar End -->
+  
+		<div class="container-fluid pt-4 px-4">
+      <div class="col-sm-12 col-xl-12 text-center">
+        <div class="bg-secondary rounded h-100 p-4">
+          <h6 class="text-start">
+            <a class="btn btn-outline-info">
+            <i class="fa fa-backward"></i>
+            BACK</a>
+          </h6>
+          
+          <h5 class="mb-4">EDIT USER</h6>
+          <form action="/admin/users/edit" method="POST">
+            {{#if editUserError}}
+              <div class="alert alert-primary alert-dismissible fade show text-start" role="alert">
+                <i class="fa fa-exclamation-circle me-2"></i>
+                <strong>Error !</strong> {{editUserError}}
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+              </div>
+            {{/if}}
+            <div class="d-flex gap-3">
+              <div class="form-floating mb-3 w-50">
+                <input
+                  type="text"
+                  class="form-control"
+                  id="floatingInput"
+                  placeholder="name@example.com"
+                  name="firstName"
+                  value="{{editUser.firstName}}"
+                />
+                <label for="floatingInput">First Name</label>
+              </div>
+              <div class="form-floating mb-3 w-50">
+                <input
+                  type="text"
+                  class="form-control"
+                  id="floatingInput"
+                  placeholder="name@example.com"
+                  name="lastName"
+                  value="{{editUser.lastName}}"
+                />
+                <label for="floatingInput">Last Name</label>
+              </div>
+            </div>
+            <div class="form-floating mb-3">
+              <input
+                type="email"
+                class="form-control"
+                id="floatingInput"
+                placeholder="name@example.com"
+                name="email"
+                value="{{editUser.email}}"
+              />
+              <label for="floatingInput">Email address</label>
+            </div>
+            <div class="form-floating mb-3">
+              <input
+                type="text"
+                class="form-control"
+                id="floatingPassword"
+                placeholder="Password"
+                name="password"
+                value="{{editUser.password}}"
+              />
+              <label for="floatingPassword">Password</label>
+            </div>
+            <div class="form-floating mb-3">
+              <input
+                type="text"
+                class="form-control"
+                id="floatingPassword"
+                placeholder="Image"
+                name="image"
+                value="{{editUser.image}}"
+              />
+              <label for="floatingPassword">Image</label>
+            </div>
+            <div class="form-floating mb-3">
+              <select
+                class="form-select"
+                id="floatingSelect"
+                aria-label="Floating label select example"
+                name="role">
+                <option value="user" 
+                {{#ifequal editUser.role 'user'}}selected{{/ifequal}}>
+                  User
+                </option>
+                <option value="admin" 
+                {{#ifequal editUser.role 'admin'}}selected{{/ifequal}}>
+                  Admin
+                </option>
+                {{#ifequal admin.role "owner"}}
+                  <option value="owner" 
+                  {{#ifequal editUser.role 'owner'}}selected{{/ifequal}}>
+                    Owner
+                  </option>
+                {{/ifequal}}
+              </select>
+              <label for="floatingSelect">Role</label>
+            </div>
+            <input type="hidden" value="{{editUser._id}}" name="_id">
+            <button type="submit" class="btn btn-info">SAVE USER</button>
+          </form>
+        </div>
+      </div>
+		</div>
+		<!-- Footer Start -->
+		{{> adminFoot}}
+		<!-- Footer End -->
+	</div>
+	<!-- Content End -->
+
+	<!-- Back to Top -->
+	<a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i
+			class="bi bi-arrow-up"
+		></i></a>
+</div>

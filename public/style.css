@@ -1,0 +1,117 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: linear-gradient(to left, #000 0%, #191C24 100%) !important;
+  background: #2d3241 !important;
+  color: rgb(0, 255, 255) !important;
+}
+
+nav {
+  box-shadow: rgba(0, 0, 0, 0.17) 0px -23px 25px 0px inset, rgba(0, 0, 0, 0.15) 0px -36px 30px 0px inset, rgba(0, 0, 0, 0.1) 0px -79px 40px 0px inset, rgba(0, 0, 0, 0.06) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
+}
+
+.navBtn {
+  transition: 1s;
+}
+
+.navBtn:hover {
+  border-radius: 50px !important;
+  transform: scale(1.2);
+  color: black !important;
+  background: radial-gradient(circle at 7.5% 24%, rgb(237, 161, 193) 0%, rgb(250, 178, 172) 25.5%, rgb(190, 228, 210) 62.3%, rgb(215, 248, 247) 93.8%);
+}
+
+button {
+  transition: 1s !important;
+}
+
+button:hover {
+  border-radius: 50px !important;
+  transform: scale(1.2) !important;
+}
+
+.border-left {
+  border-left: 5px solid crimson;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgb(102, 255, 0);
+  border-radius: 50px;
+}
+
+::selection {
+  background-color: cyan;
+}
+
+.carousel-inner {
+  box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px !important;
+  border-radius: 20px !important;
+}
+
+.carousel-inner img {
+  border-radius: 20px !important;
+  border: 1px solid black;
+}
+
+.mainCont {
+  color: #1B2430;
+  box-shadow: rgba(0, 0, 0, 0.17) 0px -23px 25px 0px inset, rgba(0, 0, 0, 0.15) 0px -36px 30px 0px inset, rgba(0, 0, 0, 0.1) 0px -79px 40px 0px inset, rgba(0, 0, 0, 0.06) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
+  background: rgba(255, 102, 0, 0.7);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(1.3px);
+  -webkit-backdrop-filter: blur(1.3px);
+}
+
+.userDrop img {
+  height: 50px;
+  width: 50px;
+  border-radius: 50px;
+  border: 1px solid bisque;
+}
+
+.product-image {
+  width: 50%;
+  height: 70vh;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  border-radius: 20px;
+  border: 1px solid rgb(0, 0, 0);
+}
+
+.card-product {
+  padding: 15px;
+  box-shadow: rgba(0, 0, 0, 0.17) 0px -23px 25px 0px inset, rgba(0, 0, 0, 0.15) 0px -36px 30px 0px inset, rgba(0, 0, 0, 0.1) 0px -79px 40px 0px inset, rgba(0, 0, 0, 0.06) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 25px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(0px);
+  -webkit-backdrop-filter: blur(0px);
+  border: 1px solid rgb(0, 0, 0);
+  color: #000;
+}
+
+.avatar img {
+  width: 80px;
+  height: 80px;
+  border-radius: 20px;
+}
+
+.avatar {
+  background: rgb(43, 255, 0, 0.5);
+  padding: 10px;
+  border-radius: 20px;
+  border: 1px solid #000;
+}

@@ -1,0 +1,65 @@
+<div class="container-fluid position-relative d-flex p-0">
+	
+	<!-- Sidebar Start -->
+	{{> adminSidebar}}
+	<!-- Sidebar End -->
+	
+
+	<!-- Content Start -->
+	<div class="content">
+		<!-- Navbar Start -->
+		{{> adminNavbar}}
+		<!-- Navbar End -->
+  
+		<div class="container-fluid pt-4 px-4">
+      <div class="col-sm-12 col-xl-12">
+        <div class="bg-secondary rounded h-100 p-4">
+          <div class="chatFrame bg-dark">
+            <button><i class="fa fa-fullscreen"></i></button>
+            <ul class="allMsg" id="allMsg">
+            {{#each allChatMsgs}}
+              {{#ifequal @root.admin._id userId}}
+              <li class="myMsg">
+                <p>
+                <span style="color:rgb(0, 255, 0)" class="whoName">{{userName}}</span>
+                {{content}}
+                <span class="time">{{formatDate createdAt 2}}</span>
+                </p>
+               <img src="{{userImage}}" alt="image" class="avatarImg">
+              </li>
+              {{else}}
+              <li class="otherMsg">
+               <img src="{{userImage}}" alt="image" class="avatarImg">
+                <p>
+                <span style="color:rgb(0, 70, 0)" class="whoName">{{userName}}</span>
+                {{content}}
+                <span class="time">{{formatDate createdAt 2}}</span>
+                </p>
+              </li>
+              {{/ifequal}}
+            {{/each}}
+            </ul>
+            <div class="sendingArea">
+              <button id="btnEmoji">
+              <div id="emojies">
+                <ul id="emjiesUl">
+                {{#each emoji}}
+                  <li onclick="setEmoji(this)">{{this}}</li>
+                {{/each}}
+                </ul>
+              </div>
+              <i class="fa fa-smile"></i></button>
+              <form action="/admin/chats" method="POST">
+              <input name="content" class="msgArea" id="writeArea" placeholder="Write Message..." autofocus autocomplete="off">
+              <button type="submit" class="btnSend" id="btnSend">
+              <i class="fa fa-paper-plane"></i>
+              </button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+		</div>
+	</div>
+	<!-- Content End -->
+</div>

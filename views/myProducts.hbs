@@ -1,0 +1,41 @@
+{{#if myProducts.length}}
+	<p class="fs-1 text-center">MENING UYLARIM</p>
+	<ul class="row row-cols-1 row-cols-sm-2 row-cols-md-2 g-3">
+		{{#each myProducts}}
+			<div class="col">
+				<li class="list-group-item">
+					<a href="" class="card">
+						<img src="{{image}}" class="card__image" alt="" />
+						<div class="card__overlay">
+							<div class="card__header">
+								<img class="card__thumb" src="{{user.image}}" alt="" />
+								<div class="card__header-text w-100">
+									<h3 class="card__title">TITLE : {{title}} </h3>
+									<p class="w-100 text-danger d-flex justify-content-between">
+										<span class="text-dark text-capitalize">
+											{{user.firstName}}
+											{{user.lastName}}
+										</span>
+										<span class="card__money">Price : {{price}}.00 $</span>
+									</p>
+								</div>
+							</div>
+							<p class="card__description">{{description}}
+								...</p>
+						</div>
+					</a>
+					<div class="cardBtns d-flex justify-content-between">
+						<span class="card__status">{{formatDate createdAt}}</span>
+						<div class="d-flex justify-content-end gap-3">
+							<a title="View" class="btn btn-primary" href="/product/{{_id}}">
+								<i class="fa fa-eye"></i></a>
+						</div>
+					</div>
+
+				</li>
+			</div>
+		{{/each}}
+	</ul>
+{{else}}
+	<p class="fs-1 text-center">Products not found</p>
+{{/if}}

@@ -1,0 +1,86 @@
+<div class="w-50 mx-auto text-center formDiv">
+	<p class="fs-1 text-light">REGISTER</p>
+	{{#if registerError}}
+		<div
+			class="alert alert-danger alert-dismissible fade show d-flex align-items-center"
+			role="alert"
+		>
+			<svg
+				xmlns="http://www.w3.org/2000/svg"
+				width="30"
+				height="30"
+				fill="currentColor"
+				class="bi bi-exclamation-circle-fill me-3"
+				viewBox="0 0 16 16"
+			>
+				<path
+					d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8 4a.905.905 0 0 0-.9.995l.35 3.507a.552.552 0 0 0 1.1 0l.35-3.507A.905.905 0 0 0 8 4zm.002 6a1 1 0 1 0 0 2 1 1 0 0 0 0-2z"
+				></path>
+			</svg>
+			<strong class="me-2">Error!!! </strong>
+			{{registerError}}
+			<button
+				type="button"
+				class="btn-close"
+				data-bs-dismiss="alert"
+				aria-label="Close"
+			></button>
+		</div>
+	{{/if}}
+	<form action="/register" method="post">
+		<div class="d-flex gap-3">
+			<div class="form-floating mb-3 w-50">
+				<input
+					type="text"
+					class="form-control"
+					id="floatingInput"
+					placeholder="Toshmat"
+					name="firstname"
+				/>
+				<label for="floatingInput" class="text-dark">First Name</label>
+			</div>
+			<div class="form-floating mb-3 w-50">
+				<input
+					type="text"
+					class="form-control"
+					id="floatingInput"
+					placeholder="G'ishmatov"
+					name="lastname"
+				/>
+				<label for="floatingInput" class="text-dark">Last Name</label>
+			</div>
+		</div>
+		<div class="form-floating mb-3">
+			<input
+				type="email"
+				class="form-control"
+				id="floatingInput"
+				placeholder="tosh@mat.com"
+				name="email"
+			/>
+			<label for="floatingInput" class="text-dark">Email address</label>
+		</div>
+		<div class="form-floating mb-3">
+			<input
+				type="password"
+				class="form-control"
+				id="floatingPassword"
+				placeholder="123123"
+				name="password"
+			/>
+			<label for="floatingInput" class="text-dark">Password</label>
+		</div>
+		<div class="form-floating mb-3">
+			<input
+				type="text"
+				class="form-control"
+				id="floatingPassword"
+				placeholder="image..."
+				name="image"
+			/>
+			<label for="floatingInput" class="text-dark">Image</label>
+		</div>
+
+		<button type="submit" class="formBtn mt-3">SIGN UP</button>
+	</form>
+</div>

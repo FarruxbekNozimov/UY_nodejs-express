@@ -1,0 +1,76 @@
+<div class="container-fluid position-relative d-flex p-0">
+
+	<!-- Sidebar Start -->
+	{{> adminSidebar}}
+	<!-- Sidebar End -->
+
+	<!-- Content Start -->
+	<div class="content">
+		<!-- Navbar Start -->
+		{{> adminNavbar}}
+		<!-- Navbar End -->
+
+		<!-- Table Start -->
+		<div class="container-fluid pt-4 px-4">
+			<div class="row g-4">
+				<div class="col-sm-12 col-xl-12">
+					<div class="bg-secondary rounded h-100 p-4">
+						<a href="/admin/users" class="btn btn-outline-info">
+							<i class="fa fa-backspace"></i> BACK
+						</a>
+						<h4 class="mb-4 text-center">About {{myUser.firstName}}</h4>
+						<div class="d-flex gap-3">
+							<img src="{{myUser.image}}" alt="userImage" class="rounded w-50">
+							<div class="about text-center w-50">
+								<h5 class="text-center">{{myUser.firstName}} {{myUser.lastName}}</h5>
+								<h6 class="text-start">
+									<span class="text-info display me-2"><i class="fa fa-voicemail"></i></span>
+									Email : {{myUser.email}}
+								</h6>
+								<h6 class="text-start">
+									<span class="text-info display me-2"><i class="fa fa-lock"></i></span>
+									Password : {{myUser.password}}
+								</h6>
+								{{#ifequal myUser.role 'owner'}}
+									<h6 class="text-start">
+									<span class="text-info display me-2"><i class="fa fa-user-secret"></i></span>
+									Role : Owner 
+									</h6>
+								{{else ifequal myUser.role 'admin'}}
+									<h6 class="text-start">
+										<span class="text-info display me-2"><i class="fa fa-user"></i></span>
+										Role : Admin 
+									</h6>
+								{{else}}
+									<h6 class="text-start">
+										<span class="text-info display me-2"><i class="fa fa-user"></i></span>
+										Role : User 
+									</h6>
+								{{/ifequal}}
+								<h6 class="text-start">
+									<span class="text-info display me-2"><i class="fa fa-user-clock"></i></span>
+									Created at : {{formatDate myUser.createdAt}} 
+								</h6>
+								<h6 class="text-start">
+									<span class="text-info display me-2"><i class="fa fa-user-edit"></i></span>
+									Updated at : {{formatDate myUser.updatedAt}} 
+								</h6>
+							</div>
+						</div>
+					</div>
+				</div>	
+			</div>
+		</div>
+		<!-- Table End -->
+
+		<!-- Footer Start -->
+		{{> adminFoot}}
+		<!-- Footer End -->
+	</div>
+	<!-- Content End -->
+
+	<!-- Back to Top -->
+	<a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i
+			class="bi bi-arrow-up"
+		></i></a>
+</div>

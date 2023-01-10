@@ -1,0 +1,115 @@
+:root {
+  --surface-color_about: rgb(255, 254, 174);
+  --curve_about: 40;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin: 4rem 5vw;
+  padding: 0;
+  list-style-type: none;
+}
+
+.card1 {
+  position: relative;
+  display: flex;
+  height: 100%;
+  border-radius: calc(var(--curve_about) * 1px);
+  overflow: hidden;
+  text-decoration: none;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+}
+
+.card_image {
+  width: 100%;
+  height: auto;
+}
+
+.card_overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 1;
+  border-radius: calc(var(--curve_about) * 1px);
+  background-color: var(--surface-color_about);
+  transform: translateY(100%);
+  transition: .2s ease-in-out;
+}
+
+.card1:hover .card_overlay {
+  transform: translateY(0);
+}
+
+.card_header {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 2em;
+  padding: 2em;
+  border-radius: calc(var(--curve_about) * 1px) 0 0 0;
+  background-color: var(--surface-color_about);
+  transform: translateY(-100%);
+  transition: .2s ease-in-out;
+}
+
+.card_arc {
+  width: 80px;
+  height: 80px;
+  position: absolute;
+  bottom: 100%;
+  right: 0;
+  z-index: 1;
+}
+
+.card_arc path {
+  fill: var(--surface-color_about);
+}
+
+.card1:hover .card_header {
+  transform: translateY(0);
+}
+
+.card_thumb {
+  flex-shrink: 0;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+
+.card_title {
+  font-size: 1em;
+  margin: 0 0 .3em;
+  color: #242100;
+}
+
+.card_tagline {
+  display: block;
+  margin: 1em 0;
+  font-family: "MockFlowFont";
+  font-size: .8em;
+  color: #D7BDCA;
+}
+
+.card_status {
+  font-size: 1em;
+  color: #ebafcd;
+  font-weight: bold;
+}
+
+.card_description {
+  padding: 0 2em 2em;
+  margin: 0;
+  color: #999;
+  font-family: "MockFlowFont";
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  overflow: hidden;
+}
