@@ -5,9 +5,7 @@ const UserSchema = new Schema(
 		userId: { type: String, required: true },
 		phone: { type: String, required: true, unique: true },
 		bio: { type: String, required: true },
-		password: { type: String, required: true },
-		image: { type: String },
-		role: { type: String },
+		country: { type: String, required: true },
 	},
 	{ timestamps: true }
 );

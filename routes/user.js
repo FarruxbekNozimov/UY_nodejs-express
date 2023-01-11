@@ -1,7 +1,8 @@
 import { Router } from "express";
 const router = Router();
+import AuthMiddleware from "../middleware/auth.js";
 
-router.get("/settings", (req, res) => {
+router.get("/settings", AuthMiddleware, (req, res) => {
 	res.render("settings", {
 		title: "SETTINGS | FarruxDEV",
 		loginError: req.flash("loginError"),
