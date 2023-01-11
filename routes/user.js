@@ -5,6 +5,7 @@ router.get("/settings", (req, res) => {
 	res.render("settings", {
 		title: "SETTINGS | FarruxDEV",
 		loginError: req.flash("loginError"),
+		user: req.user,
 		userName: req.user ? req.user.firstName : null,
 		userImage: req.user ? req.user.image : null,
 	});

@@ -6,11 +6,10 @@ import Product from "../models/Product.js";
 import auth from "../middleware/auth.js";
 const router = Router();
 
-router.get("/", authMiddleware, user, (req, res) => {
+router.get("/", user, (req, res) => {
 	res.render("index", {
 		title: "UY APP | FarruxDEV",
 		isHome: true,
-		token: true,
 		userName: req.user ? req.user.firstName : null,
 		userRole: req.user ? req.user.role : null,
 		userImage: req.user ? req.user.image : null,
@@ -40,7 +39,7 @@ router.get("/products", async (req, res) => {
 	});
 });
 
-router.get("/product/:id", auth, async (req, res) => {
+router.get("/product/:id", async (req, res) => {
 	const id = req.params.id;
 	const product = await Product.findById(id).populate("user").lean();
 	res.render("product", {
