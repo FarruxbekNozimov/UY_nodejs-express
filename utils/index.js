@@ -33,4 +33,8 @@ export default {
 	avatarTxt(a, b) {
 		return (a.slice(0, 1) + "." + b.slice(0, 1)).toUpperCase();
 	},
+	showObject(obj, value, options) {
+		console.log(obj, value);
+		return obj[value];
+	},
 };

@@ -1,13 +1,12 @@
 <section class="">
 	<div class="container">
-		<h1>{{userData._id}}</h1>
 		<div
 			class="bg-info text-black shadow rounded-lg rounded-5 d-block d-sm-flex"
 		>
 			<div class="profile-tab-nav border-right">
 				<div class="p-4">
 					<div class="img-circle text-center mb-3">
-						<img src="img/user2.jpg" alt="Image" class="shadow" />
+						<img src="{{showObject user 'image'}}" alt="Image" class="shadow" />
 					</div>
 					<h4 class="text-center">Kiran Acharya</h4>
 				</div>
@@ -66,7 +65,7 @@
 						Application
 					</a>
 					<a
-						class="nav-link"
+						class="nav-link border-0"
 						id="notification-tab"
 						data-toggle="pill"
 						href="#notification"
@@ -91,13 +90,21 @@
 						<div class="col-md-6">
 							<div class="form-group">
 								<label>First Name</label>
-								<input type="text" class="form-control" value="Kiran" />
+								<input
+									type="text"
+									class="form-control"
+									value="{{showObject user 'firstName'}}"
+								/>
 							</div>
 						</div>
 						<div class="col-md-6">
 							<div class="form-group">
 								<label>Last Name</label>
-								<input type="text" class="form-control" value="Acharya" />
+								<input
+									type="text"
+									class="form-control"
+									value="{{showObject user 'lastName'}}"
+								/>
 							</div>
 						</div>
 						<div class="col-md-6">
@@ -106,7 +113,7 @@
 								<input
 									type="text"
 									class="form-control"
-									value="kiranacharya287@gmail.com"
+									value="{{showObject user 'email'}}"
 								/>
 							</div>
 						</div>
@@ -122,12 +129,26 @@
 						</div>
 						<div class="col-md-6">
 							<div class="form-group">
-								<label>Company</label>
-								<input
-									type="text"
-									class="form-control"
-									value="Kiran Workspace"
-								/>
+								<label>Country</label>
+								<select
+									value=""
+									class="form-select"
+									aria-label="Default select example"
+								>
+									<option name="Andijon">Andijon</option>
+									<option name="Toshkent">Toshkent</option>
+									<option name="Farg'ona">Farg'ona</option>
+									<option name="Namangan">Namangan</option>
+									<option name="Sirdaryo">Sirdaryo</option>
+									<option name="Jizzax">Jizzax</option>
+									<option name="Samarqand">Samarqand</option>
+									<option name="Buxoro">Buxoro</option>
+									<option name="Surxondaryo">Surxondaryo</option>
+									<option name="Navoiy">Navoiy</option>
+									<option name="Qashqadaryo">Qashqadaryo</option>
+									<option name="Urganch">Urganch</option>
+									<option name="Qoraqalpog'iston'">Qoraqalpog'iston'</option>
+								</select>
 							</div>
 						</div>
 						<div class="col-md-6">
@@ -139,12 +160,11 @@
 						<div class="col-md-12">
 							<div class="form-group">
 								<label>Bio</label>
-								<textarea class="form-control" rows="4">
-									Lorem ipsum dolor sit amet consectetur adipisicing elit.
-									Labore vero enim error similique quia numquam ullam corporis
-									officia odio repellendus aperiam consequatur laudantium porro
-									voluptatibus, itaque laboriosam veritatis voluptatum
-									distinctio!</textarea>
+								<textarea class="form-control" rows="4">Lorem ipsum dolor sit
+									amet consectetur adipisicing elit. Labore vero enim error
+									similique quia numquam ullam corporis officia odio repellendus
+									aperiam consequatur laudantium porro voluptatibus, itaque
+									laboriosam veritatis voluptatum distinctio!</textarea>
 							</div>
 						</div>
 					</div>
