@@ -1,8 +1,9 @@
 import { Router } from "express";
-import User from "../models/User.js";
 const router = Router();
+import User from "../models/User.js";
 import { generateJWTtoken } from "../services/token.js";
 import { hashing, unhashing } from "../services/hashing.js";
+import downloadImg from "../utils/downloadImg.js";
 
 router.get("/login", (req, res) => {
 	req.cookies.token ? res.redirect("/") : "";
@@ -53,6 +54,16 @@ router.post("/login", async (req, res) => {
 
 router.post("/register", async (req, res) => {
 	const { firstname, lastname, email, password, image } = req.body;
+	let download = downloadImg(
+		image,
+		"img/" + new Date().getTime() + ".jpeg",
+		() => console.log("Image downloading...")
+	);
+	if (!download) {
+		req.flash("registerError", "Image is not available");
+		res.redirect("/register");
+		return;
+	}
 	if (!firstname || !lastname || !email || !password) {
 		req.flash("registerError", "All fields are required");
 		res.redirect("/register");
@@ -83,4 +94,5 @@ router.post("/register", async (req, res) => {
 	res.cookie("token", token, { httpOnly: true, secure: true });
 	res.redirect("/");
 });
+
 export default router;
