@@ -1,1 +1,33 @@
-<h1>CONTACT</h1>
+<div class="col-sm-12 col-md-6 mx-auto text-center formDiv">
+	<p class="fs-1 text-light">Contact with me</p>
+	<form action="/contact" method="post">
+		<div class="form-floating mb-3">
+			<input
+				type="text"
+				class="form-control"
+				id="floatingInput"
+				placeholder="tosh@mat.com"
+			/>
+			<label class="text-dark">Name</label>
+		</div>
+		<div class="form-floating mb-3">
+			<input
+				type="text"
+				class="form-control"
+				id="floatingInput"
+				placeholder="Image"
+			/>
+			<label class="text-dark">Phone Number</label>
+		</div>
+		<div class="form-floating mb-3">
+			<textarea
+				class="form-control"
+				placeholder="Description here..."
+				id="floatingTextarea2"
+				style="height: 100px"
+			></textarea>
+			<label for="floatingTextarea2" class="text-dark">Message</label>
+		</div>
+		<button type="submit" class="formBtn mt-3">ADD</button>
+	</form>
+</div>

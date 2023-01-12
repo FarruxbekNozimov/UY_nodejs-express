@@ -88,7 +88,6 @@ router.get("/my-products", async (req, res) => {
 router.get("/edit-product/:id", async (req, res) => {
 	const id = req.params.id;
 	const product = await Product.findById(id).populate("user").lean();
-	console.log("GET", id);
 
 	res.render("edit-product", {
 		title: "UYLAR | FarruxDEV",
