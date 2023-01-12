@@ -54,10 +54,9 @@ router.post("/login", async (req, res) => {
 
 router.post("/register", async (req, res) => {
 	const { firstname, lastname, email, password, image } = req.body;
-	let download = downloadImg(
-		image,
-		"img/" + new Date().getTime() + ".jpeg",
-		() => console.log("Image downloading...")
+	let dateNow = new Date().getTime();
+	let download = downloadImg(image, "img/" + dateNow + ".jpeg", () =>
+		console.log("Image downloading...")
 	);
 	if (!download) {
 		req.flash("registerError", "Image is not available");
@@ -68,10 +67,6 @@ router.post("/register", async (req, res) => {
 		req.flash("registerError", "All fields are required");
 		res.redirect("/register");
 		return;
-	}
-	if (!image) {
-		image =
-			"https://cdn.icon-icons.com/icons2/1378/PNG/512/avatardefault_92824.png";
 	}
 	const condidate = await User.findOne({ email });
 	if (condidate) {
@@ -86,7 +81,7 @@ router.post("/register", async (req, res) => {
 		lastName: lastname,
 		email: email,
 		password: hashedPassword,
-		image: image,
+		image: "/img/" + new Date().getTime() + ".jpeg",
 		role: "user",
 	};
 	const user = await User.create(userData);

@@ -1,7 +1,7 @@
 import fs from "fs";
 import request from "request";
 
-var downloadImg = function (uri, filename, callback) {
+const downloadImg = function (uri, filename, callback) {
 	if (!imageExists(uri)) return false;
 	request.head(uri, function (err, res, body) {
 		console.log("content-type:", res.headers["content-type"]);
@@ -10,6 +10,7 @@ var downloadImg = function (uri, filename, callback) {
 	});
 	return true;
 };
+
 function imageExists(imageUrl) {
 	let imgs = ["png", "jpeg", "jpg", "gif"];
 	return imgs.includes(
